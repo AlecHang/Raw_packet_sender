@@ -17,7 +17,7 @@ class PktGen():
         #16进制payload，可以自定义更多字段
         self.payload_hex = payload_hex
 
-    def send_packet(self, src_ip, dst_ip, dst_port):
+    def send_packet(self, src_ip, dst_ip):
         #采用原始套接字进行数据包发送
         s = socket.socket(socket.PF_PACKET, socket.SOCK_RAW, socket.htons(0x0800))#socket.htons(0x86dd)
         #绑定特定网卡
@@ -58,7 +58,7 @@ class PktGen():
 
         packet = ip_header + payload_bin
 
-        #将数据包发送给ip为dst_ip,端口号为dst_port的主机
+        #发送数据包
         s.send(packet)
 
 
@@ -69,5 +69,5 @@ if __name__ == '__main__':
     src_ip = "192.168.100.185"
     #src_ip = "192.168.112.1"
     dst_ip = "192.168.101.35"
-    dst_port = 369
-    pkt.send_packet(src_ip, dst_ip, dst_port)
+
+    pkt.send_packet(src_ip, dst_ip)
