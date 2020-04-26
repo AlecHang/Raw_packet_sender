@@ -7,5 +7,7 @@ linux环境下请以root权限运行，windows环境下请以管理员权限运�
 执行发包程序时，发包对应的网卡填写需正确。
 s.bind(("p1p3", socket.htons(0x0800)))，"p1p3"改为需要发包的网卡
 
+发包指令：
+python3 send_packet.py
 如果对您有用请star，谢谢~笔芯~
 
